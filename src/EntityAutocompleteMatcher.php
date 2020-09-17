@@ -25,7 +25,7 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
     if (isset($string)) {
       // Get an array of matching entities.
       $match_operator = !empty($selection_settings['match_operator']) ? $selection_settings['match_operator'] : 'CONTAINS';
-      $entity_labels = $handler->getReferenceableEntities($string, $match_operator, 10);
+      $entity_labels = $handler->getReferenceableEntities($string, $match_operator, 20);
 
 
       // Loop through the entities and convert them into autocomplete output.
@@ -37,9 +37,6 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
 
           $type = !empty($entity->type->entity) ? $entity->type->entity->label() : $entity->bundle();
           $status = '';
-          if ($entity->getEntityType()->id() == 'node') {
-            $status = ($entity->isPublished()) ? ", Published" : ", Unpublished";
-          }
 
           $key = $label . ' (' . $entity_id . ')';
           // Strip things like starting/trailing white spaces, line breaks and tags.
