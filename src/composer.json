@@ -1,0 +1,8 @@
+{
+  "name": "australian_greens/alter-entity-autocomplete",
+  "description": "Drupal module to alter the behaviour of Drupal entity autocomplete",
+  "type": "drupal-module",
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}
